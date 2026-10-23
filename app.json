@@ -20,6 +20,7 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
+      "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
@@ -32,11 +33,62 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      "@clerk/expo",
+      "expo-secure-store",
+      "expo-web-browser",
+      "expo-font",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf",
+            "./assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf"
+          ],
+          "android": {
+            "fonts": [
+              {
+                "fontFamily": "DMSerifDisplay",
+                "fontDefinitions": [
+                  {
+                    "path": "./assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf",
+                    "weight": 400
+                  },
+                  {
+                    "path": "./assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf",
+                    "weight": 400,
+                    "style": "italic"
+                  }
+                ]
+              },
+              {
+                "fontFamily": "Inter",
+                "fontDefinitions": [
+                  {
+                    "path": "./assets/fonts/Inter/Inter_24pt-Regular.ttf",
+                    "weight": 400
+                  },
+                  {
+                    "path": "./assets/fonts/Inter/Inter_24pt-Bold.ttf",
+                    "weight": 700
+                  }
+                ]
+              }
+            ]
+          }
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1456caa5-d298-4e0c-93d5-f717dd8acc29"
+      }
+    },
+    "owner": "zeenatmalik"
   }
 }
