@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .cta-btn {
+    @apply w-full h-[56px] items-center justify-center rounded-full bg-[#864332] mt-10 py-4 opacity-80;
+  }
+  .title {
+    @apply text-[42px] font-display mb-2 text-[#3F2E24];
+  }
+  .label {
+    @apply text-[#3F2E24] text-lg font-inter-bold pb-2;
+  }
+  .text-field {
+    @apply w-full h-[56px] px-4 rounded-3xl border border-[#D7C5A9] bg-[#F3E8D5] text-[#796451] font-inter;
+  }
+  .code-box {
+    @apply h-[56px] w-[48px] rounded-2xl border border-[#D7C5A9] bg-[#F3E8D5] text-center text-[#796451] font-inter;
+  }
+}

@@ -13,7 +13,7 @@ if (!publishableKey) {
 
 export default function TabLayout() {
   return (
-       <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <Slot />
     </ClerkProvider>
   );

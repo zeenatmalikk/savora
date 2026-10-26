@@ -8,7 +8,14 @@ module.exports = {
   ],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['DMSerifDisplay'],
+        'display-italic': ['DMSerifDisplayItalic'],
+        inter: ['Inter'],
+        'inter-bold': ['InterBold'],
+      },
+    },
   },
   plugins: [],
 };
