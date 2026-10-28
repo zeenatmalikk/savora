@@ -5,6 +5,7 @@
   "dependencies": {
     "@clerk/expo": "^4.14.1",
     "@expo/ui": "~57.0.26",
+    "@react-native-community/slider": "5.2.0",
     "expo": "~57.0.31",
     "expo-auth-session": "~57.0.16",
     "expo-constants": "~57.0.22",

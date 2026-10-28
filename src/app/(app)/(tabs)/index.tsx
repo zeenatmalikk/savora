@@ -1,11 +1,16 @@
 
+import Carousel from '@/components/carousel';
+import FeatureRecipe from '@/components/feature-recipe';
+import MealType from '@/components/meal-type';
 import { useAuth, useUser } from '@clerk/expo';
+import { Stack } from 'expo-router';
+import { ArrowUpRight } from 'lucide-react-native';
 import { useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
-  Button,
-  StyleSheet,
+  Image,
+  ScrollView,
   Text,
   View
 } from 'react-native';
@@ -33,7 +38,7 @@ export default function HomeScreen() {
 
   if (!isLoaded) {
     return (
-      <View style={styles.center}>
+      <View >
         <ActivityIndicator size="large" />
         <Text>Loading...</Text>
       </View>
@@ -42,96 +47,90 @@ export default function HomeScreen() {
 
   if (!isSignedIn) {
     return (
-      <SafeAreaView style={styles.center}>
-        <Text style={styles.title}>You're signed out</Text>
+      <SafeAreaView >
+        <Text >You're signed out</Text>
         <Text>Please sign in to access the home page.</Text>
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.card}>
-        <Text style={styles.eyebrow}>YOUR ACCOUNT</Text>
-        <Text style={styles.title}>Welcome home!</Text>
+    <>
+      <Stack.Screen
+        options={{
+          headerTitle: () => (
+            <View
+              style={{
+                flex: 1,
+                minWidth: 0,
+                paddingBottom: 2,
+              }}
+              className="flex-row items-center"
+            >
+              <View style={{ paddingRight: 8 }}>
+                {user?.imageUrl ? (
+                  <Image
+                    source={{ uri: user.imageUrl }}
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 20,
+                    }}
+                  />
+                ) : (
+                  <View className="h-10 w-10 rounded-full bg-[#F8DCC8] items-center justify-center">
+                    <Text className="font-inter-bold text-[#864332]">
+                      {user?.firstName?.charAt(0).toUpperCase() ?? 'U'}
+                    </Text>
+                  </View>
+                )}
+              </View>
 
-        <Text style={styles.label}>Email</Text>
-        <Text style={styles.value}>
-          {user?.primaryEmailAddress?.emailAddress ?? 'No email available'}
-        </Text>
+              <View>
+                <Text className="font-inter text-xs text-[#796451]">
+                  Welcome back,
+                </Text>
+                <Text
+                  className="font-inter text-base text-[#3F2E24]"
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {user?.emailAddresses[0]?.emailAddress ?? 'Welcome'}
+                </Text>
+              </View>
+            </View>
+          ),
 
-        <Text style={styles.label}>User ID</Text>
-        <Text style={styles.userId}>{user?.id ?? 'Loading...'}</Text>
+          headerTitleAlign: 'left',
+          headerStyle: {
+            backgroundColor: '#FFF8F0',
+          },
+          headerShadowVisible: false,
 
-        <Button title="Sign out" onPress={handleSignOut} />
-          
-      </View>
-    </SafeAreaView>
+        }}
+      />
+
+      <ScrollView
+        className="flex-1 bg-[#FFF8F0]"
+        contentContainerStyle={{ padding: 24, paddingBottom: 40 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <Text className="section-title">What's Cooking?</Text>
+
+        <Carousel />
+
+        <MealType />
+        <View className="flex-row items-baseline justify-between">
+          <Text className="section-title mt-7">Grab a drink?</Text>
+          <View className="flex-row items-center justify-start">
+            <Text className="">Explore</Text>
+
+            <ArrowUpRight size={16} color="#864332" />
+          </View>
+        </View>
+        <FeatureRecipe />
+      </ScrollView>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-    justifyContent: 'center',
-    backgroundColor: '#f8fafc',
-  },
-  center: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-    padding: 24,
-  },
-  card: {
-    padding: 24,
-    borderRadius: 20,
-    backgroundColor: '#fff',
-    gap: 12,
-    elevation: 3,
-  },
-  eyebrow: {
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 2,
-    color: '#64748b',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
-    marginBottom: 12,
-    color: '#0f172a',
-  },
-  label: {
-    fontSize: 13,
-    color: '#64748b',
-    marginTop: 8,
-  },
-  value: {
-    fontSize: 16,
-    color: '#0f172a',
-  },
-  userId: {
-    fontSize: 12,
-    color: '#475569',
-  },
-  signOutButton: {
-    backgroundColor: '#dc2626',
-    borderRadius: 10,
-    padding: 15,
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  signOutText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  pressed: {
-    opacity: 0.8,
-  },
-  disabled: {
-    opacity: 0.6,
-  },
-});
