@@ -10,7 +10,6 @@ const Categories = () => {
         {
           Array.from({ length: 4 }).map((_, i) => (
             <RecipeCard variant='grid' />
-
           ))
         }
       </View>
