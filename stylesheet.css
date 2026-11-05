@@ -17,4 +17,10 @@
   .code-box {
     @apply h-[56px] w-[48px] rounded-2xl border border-[#D7C5A9] bg-[#F3E8D5] text-center text-[#796451] font-inter;
   }
+  .section-title {
+    @apply text-[30px] font-display  text-[#3F2E24] mb-2;
+  }
+  .desc {
+    @apply text-[#796451] text-sm font-inter;
+  }
 }

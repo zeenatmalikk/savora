@@ -267,7 +267,7 @@ export default function SignUpScreen() {
                 </View>
               )}
             </Pressable>
-            <Text className='text-center mt-5 font-inter'>Already have an account? <Link href="/sign-in"><Text className='text-[#864332] font-inter-bold'>Sign in</Text></Link></Text>
+            <Text className='text-center mt-7 font-inter'>Already have an account? <Link href="/sign-in"><Text className='text-[#864332] font-inter-bold'>Sign in</Text></Link></Text>
           </>
         )}
 

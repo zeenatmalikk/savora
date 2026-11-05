@@ -35,11 +35,11 @@ const Layout = () => {
   }
 
   return (
-    <Stack screenOptions={{ headerShown: false,  contentStyle: {
+    <Stack screenOptions={{  contentStyle: {
           backgroundColor: '#FFF8F0',
         }, }}>
       <Stack.Protected guard={!!isSignedIn}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }}  />
       </Stack.Protected>
 
       <Stack.Protected guard={!isSignedIn}>

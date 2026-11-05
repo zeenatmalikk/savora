@@ -154,7 +154,7 @@ export default function SignInScreen() {
             </Pressable>
           )}
         </Pressable>
-        <Text className='text-center mt-5 font-inter'>New to savora? <Link href="/sign-up"><Text className='text-[#864332] font-inter-bold'>Sign up</Text></Link></Text>
+        <Text className='text-center mt-7 font-inter'>New to savora? <Link href="/sign-up"><Text className='text-[#864332] font-inter-bold'>Sign up</Text></Link></Text>
         <View className='bg-[#F3E8D5] rounded-2xl p-4 mt-6 flex-row items-center justify-center gap-4'>
           <Heart color="#864332" size={20} />
          <View className='flex-col items-start justify-center gap-1'>

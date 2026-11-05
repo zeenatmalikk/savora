@@ -254,7 +254,7 @@ export default function ForgotPassword() {
       but we put them in the UI for convenience */}
       {/* {errors.fields.code && <Text style={styles.debug}>{JSON.stringify(errors, null, 2)}</Text>} */}
 
-      <Text className='text-center mt-5 font-inter'>Remember your password? <Link href="/sign-in"><Text className='text-[#864332] font-inter-bold'>Sign in</Text></Link></Text>
+      <Text className='text-center mt-7 font-inter'>Remember your password? <Link href="/sign-in"><Text className='text-[#864332] font-inter-bold'>Sign in</Text></Link></Text>
 
     </SafeAreaView>
   )
